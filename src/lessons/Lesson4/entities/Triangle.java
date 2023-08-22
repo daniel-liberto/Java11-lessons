@@ -1,4 +1,4 @@
-package entities;
+package lessons.Lesson4.entities;
 
 public class Triangle {
   public double a;
