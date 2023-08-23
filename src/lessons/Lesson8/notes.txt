@@ -1,0 +1,26 @@
+internal Static:
+    is an internal static method, which you don't need to instance or to create an object.
+    circumference(); = static
+
+external instance:
+    is an external package function, where you need to import and create an object.
+    Calculator calc = new Calculator();
+    calc.circumference() = instance
+
+external Static:
+    you don't need to create an object anymore, but need import and use class name.
+    Calculator.circumference(); = static
+
+Static characteristic:
+    * Can be used for entire system program.
+    * Don't need to create object.
+    * values usually doesn't change.
+    * Only one static class can be created with same name in project.
+    * Statics classes are always "ON" in the system even it's not called.(Memory cost)
+
+Instance characteristic:
+    * Can be used for entire system program as long as you import.
+    * Need to create an object of the correct class type.
+    * Flexible values
+    * Can create several classes with same name in the project, but in different packages.
+    * Only will cost memory if they are called.
