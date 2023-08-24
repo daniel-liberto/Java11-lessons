@@ -1,0 +1,17 @@
+
+    ╔════════════════════════╗
+    ║       accountBank      ║
+    ║────────────────────────║
+    ║ - accNumber: int       ║
+    ║ - accName: String      ║
+    ║ - accBalance: double   ║
+    ║────────────────────────║
+    ║ + depBalance(): double ║
+    ║ + wthBalance(): double ║
+    ╚════════════════════════╝
+
+some notes:
+    * accNumber is not changeable after creating acc.
+    * accBalance can have an optional first deposit when creating acc.
+    * every withdraw has a $5 of tax.
+    * if balance is less than withdraw value, don't complete the operation.

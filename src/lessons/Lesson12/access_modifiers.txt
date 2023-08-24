@@ -1,17 +1,20 @@
-               Access Levels
---------------------------------------------
-Modifier    |  Class Package Subclass World |
-public	    |    Y	    Y	    Y	    Y   |
-protected   |    Y	    Y	    Y	    N   |
-no modifier |  	 Y	    Y	    N	    N   |
-private	    |    Y	    N	    N	    N   |
---------------------------------------------
+                       ╔═══════════════╗
+                       ║ Access Levels ║
+    ╔═════════════╦════╩════╦═════════╦╩═════════╦══════════╗
+    ║   MODIFIER  ║  CLASS  ║ PACKAGE ║ SUBCLASS ║  GLOBAL  ║
+    ║─────────────║─────────║─────────║──────────║──────────║
+    ║    public	  ║    Y	║    Y	  ║     Y    ║     Y    ║
+    ║  protected  ║    Y	║    Y	  ║     Y	 ║     N    ║
+    ║ no modifier ║    Y	║    Y	  ║     N	 ║     N    ║
+    ║   private   ║    Y	║    N	  ║     N	 ║     N    ║
+    ╚═════════════╩═════════╩═════════╩══════════╩══════════╝
 
 public:
     can be accessed by all classes by importing in the package.
 
 protected:
     can only be accessed in the same package or subclasses regardless of package.
+    subclass ex: "class C extends A", A is a protected class.
 
 no modifier(empty space):
     can be accessed only in the same package.
