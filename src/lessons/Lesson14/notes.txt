@@ -1,0 +1,10 @@
+notes about vector.
+
+Syntax:
+    int n = sc.nextInt();
+    double[] vector = new double[n];
+
+Trying to explain to myself:
+    double[] = saying to syntax that is a vector array.
+    vector = vector name
+    new double[n] = the vector will be an array of double with an N indexes.
