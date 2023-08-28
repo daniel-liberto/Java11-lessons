@@ -1,4 +1,4 @@
-package lessons.Lesson6.entities;
+package lessons.Lesson06.entities;
 
 public class Rectangle {
   public double width;

@@ -1,4 +1,4 @@
-package lessons.Lesson7.entities;
+package lessons.Lesson07.entities;
 
 public class Employee {
   public String Name;

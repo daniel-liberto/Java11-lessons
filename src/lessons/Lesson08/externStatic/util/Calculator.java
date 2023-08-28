@@ -1,4 +1,4 @@
-package lessons.Lesson8.externStatic.util;
+package lessons.Lesson08.externStatic.util;
 
 public class Calculator {
 

@@ -1,6 +1,6 @@
-package lessons.Lesson4.application;
+package lessons.Lesson04.application;
 
-import lessons.Lesson4.entities.Triangle;
+import lessons.Lesson04.entities.Triangle;
 
 import java.util.Locale;
 import java.util.Scanner;

@@ -1,6 +1,6 @@
-package lessons.Lesson8.externInstance.application;
+package lessons.Lesson08.externInstance.application;
 
-import lessons.Lesson8.externInstance.util.Calculator;
+import lessons.Lesson08.externInstance.util.Calculator;
 
 import java.util.Locale;
 import java.util.Scanner;

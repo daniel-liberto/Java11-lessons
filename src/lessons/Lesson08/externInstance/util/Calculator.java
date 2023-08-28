@@ -1,4 +1,4 @@
-package lessons.Lesson8.externInstance.util;
+package lessons.Lesson08.externInstance.util;
 
 public class Calculator {
 

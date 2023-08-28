@@ -1,6 +1,6 @@
-package lessons.Lesson9.application;
+package lessons.Lesson09.application;
 
-import lessons.Lesson9.util.CurrencyConverter;
+import lessons.Lesson09.util.CurrencyConverter;
 
 import java.util.Locale;
 import java.util.Scanner;

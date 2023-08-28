@@ -1,6 +1,6 @@
-package lessons.Lesson7.application;
+package lessons.Lesson07.application;
 
-import lessons.Lesson7.entities.Employee;
+import lessons.Lesson07.entities.Employee;
 
 import java.util.Locale;
 import java.util.Scanner;

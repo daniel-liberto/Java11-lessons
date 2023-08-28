@@ -1,4 +1,4 @@
-package lessons.Lesson5.entities;
+package lessons.Lesson05.entities;
 
 public class Product {
   public String name;

@@ -1,4 +1,4 @@
-package lessons.Lesson8.internStatic.application;
+package lessons.Lesson08.internStatic.application;
 
 import java.util.Locale;
 import java.util.Scanner;

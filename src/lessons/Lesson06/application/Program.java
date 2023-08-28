@@ -1,6 +1,6 @@
-package lessons.Lesson6.application;
+package lessons.Lesson06.application;
 
-import lessons.Lesson6.entities.Rectangle;
+import lessons.Lesson06.entities.Rectangle;
 
 import java.util.Locale;
 import java.util.Scanner;
