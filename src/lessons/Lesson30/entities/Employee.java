@@ -1,11 +1,14 @@
 package lessons.Lesson30.entities;
 
 public class Employee {
-  public int id;
-  public String name;
-  public double salary;
+  private Integer id;
+  private String name;
+  private Double salary;
 
-  public Employee(int id, String name, double salary) {
+  public Employee() {
+  }
+
+  public Employee(Integer id, String name, Double salary) {
     this.id = id;
     this.name = name;
     this.salary = salary;
@@ -33,5 +36,9 @@ public class Employee {
 
   public void setSalary(double salary) {
     this.salary = salary;
+  }
+
+  public void increaseSalary(double percentage) {
+    salary = salary + ((salary * percentage) / 100.0);
   }
 }
