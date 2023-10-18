@@ -1,38 +1,35 @@
 package lessons2.Lesson07.entities;
 
 public class OrderItem {
-  private int quantity;
-  private double price;
+  private Integer quantity;
+  private Double price;
 
   private Product product;
 
   public OrderItem(){}
 
-  public OrderItem(int quantity, double price, Product product){
+  public OrderItem(Integer quantity, Double price, Product product){
     this.quantity = quantity;
     this.price = price;
     this.product = product;
   }
 
-  public void setPrice(double price){
+  public void setPrice(Double price){
     this.price = price;
   }
-  public void setQuantity(int quantity){
+  public void setQuantity(Integer quantity){
     this.quantity = quantity;
   }
-
   public void setProduct(Product product){
     this.product = product;
   }
 
-  public double getPrice(){
+  public Double getPrice(){
     return price;
   }
-
-  public int getQuantity(){
+  public Integer getQuantity(){
     return quantity;
   }
-
   public Product getProduct(){
     return product;
   }

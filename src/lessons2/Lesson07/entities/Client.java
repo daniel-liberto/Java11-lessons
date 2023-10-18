@@ -1,11 +1,9 @@
 package lessons2.Lesson07.entities;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Client {
 
-  private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
   private String name;
   private String email;
   private Date birthDate;

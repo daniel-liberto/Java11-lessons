@@ -2,15 +2,18 @@ package lessons2.Lesson07.entities;
 
 import lessons2.Lesson07.enums.OrderStatus;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Order {
+
+  private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
   private Date moment;
 
   private OrderStatus status;
-
 
   private Client client;
 
@@ -21,7 +24,6 @@ public class Order {
   public Order(Date moment, OrderStatus status, Client client){
     this.moment = moment;
     this.status = status;
-
     this.client = client;
   }
 
@@ -59,5 +61,31 @@ public class Order {
       sum = sum + item.subTotal();
     }
     return sum;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("\nORDER SUMMARY: ");
+    sb.append("\nOrder moment: 20/04/2018 11:25:09");
+    sb.append("\nOrder status: " + getStatus());
+    sb.append("\nClient: " + getClient().getName());
+    sb.append(" (" + getClient().getBirthDate() +") - " + getClient().getEmail());
+    sb.append("\nOrder items: ");
+    double sum = 0;
+    for (OrderItem item: itemList
+         ) {
+      sum += item.subTotal();
+      sb.append("\n"
+              + item.getProduct().getName()
+              + ", $"
+              + item.getProduct().getPrice()
+              + "Quantity: "
+              + item.getQuantity() + ", "
+              + "Subtotal: $"
+              + item.subTotal());
+    }
+    sb.append("\nTotal price: " + sum);
+    return sb.toString();
   }
 }

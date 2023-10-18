@@ -1,8 +1,10 @@
 package lessons2.Lesson07.application;
 
+import lessons2.Lesson07.entities.Client;
 import lessons2.Lesson07.entities.Order;
 import lessons2.Lesson07.entities.OrderItem;
 import lessons2.Lesson07.entities.Product;
+import lessons2.Lesson07.enums.OrderStatus;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -27,9 +29,13 @@ public class Program {
     System.out.print("Birth date (DD/MM/YYYY): ");
     Date birthDate = sdf.parse(sc.nextLine());
 
+    Client client = new Client(name, email, birthDate);
+
     System.out.println("\nEnter order data: ");
     System.out.print("Status: ");
     String status = sc.next();
+
+    OrderStatus statusOrder = OrderStatus.valueOf(status);
 
     System.out.print("How many items to this order? ");
     int itemsAmount = sc.nextInt();
@@ -37,7 +43,7 @@ public class Program {
      Order orderList = new Order();
 
     for (int i = 0; i < itemsAmount; i++) {
-      System.out.printf("Enter #%d item data: \n", i + 1);
+      System.out.printf("\nEnter #%d item data: \n", i + 1);
 
       System.out.print("Product name: ");
       String prodName = sc.next();
@@ -49,9 +55,10 @@ public class Program {
       int quantity = sc.nextInt();
 
       Product product = new Product(prodName, prodPrice);
-      OrderItem orderItem = new OrderItem(quantity, prodPrice, product);
-      orderList.addItem(orderItem);
+      OrderItem oi1 = new OrderItem(quantity, prodPrice, product);
+      orderList.addItem(oi1);
     }
+    System.out.println(orderList);
     sc.close();
   }
 }
