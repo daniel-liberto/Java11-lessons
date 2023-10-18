@@ -24,29 +24,30 @@ public class Program {
     String name = sc.nextLine();
 
     System.out.print("Email: ");
-    String email = sc.nextLine();
+    String email = sc.next();
 
     System.out.print("Birth date (DD/MM/YYYY): ");
-    Date birthDate = sdf.parse(sc.nextLine());
+    Date birthDate = sdf.parse(sc.next());
 
     Client client = new Client(name, email, birthDate);
 
+    System.out.println(sdf.format(client.getBirthDate()));
+
     System.out.println("\nEnter order data: ");
     System.out.print("Status: ");
-    String status = sc.next();
-
-    OrderStatus statusOrder = OrderStatus.valueOf(status);
+    OrderStatus status = OrderStatus.valueOf(sc.next());
 
     System.out.print("How many items to this order? ");
     int itemsAmount = sc.nextInt();
 
-     Order orderList = new Order();
+     Order orderList = new Order(new Date(), status, client);
 
     for (int i = 0; i < itemsAmount; i++) {
       System.out.printf("\nEnter #%d item data: \n", i + 1);
 
       System.out.print("Product name: ");
-      String prodName = sc.next();
+      sc.nextLine();
+      String prodName = sc.nextLine();
 
       System.out.print("Product price: ");
       double prodPrice = sc.nextDouble();

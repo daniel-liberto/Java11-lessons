@@ -10,6 +10,7 @@ import java.util.List;
 public class Order {
 
   private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+  private static SimpleDateFormat sdfSimple = new SimpleDateFormat("dd/MM/yyyy");
 
   private Date moment;
 
@@ -17,7 +18,7 @@ public class Order {
 
   private Client client;
 
-  private List<OrderItem> itemList = new ArrayList<>();
+  private List<OrderItem> itemList = new ArrayList<OrderItem>();
 
   public Order(){}
 
@@ -67,10 +68,11 @@ public class Order {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("\nORDER SUMMARY: ");
-    sb.append("\nOrder moment: 20/04/2018 11:25:09");
+    sb.append("\nOrder moment: ");
+    sb.append(sdfSimple.format(moment));
     sb.append("\nOrder status: " + getStatus());
-    sb.append("\nClient: " + getClient().getName());
-    sb.append(" (" + getClient().getBirthDate() +") - " + getClient().getEmail());
+    sb.append("\nClient: " + client.getName());
+    sb.append(" (" + sdfSimple.format(client.getBirthDate()) +") - " + client.getEmail());
     sb.append("\nOrder items: ");
     double sum = 0;
     for (OrderItem item: itemList
