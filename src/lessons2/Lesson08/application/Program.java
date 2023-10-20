@@ -57,12 +57,18 @@ public class Program {
     // NORMAL ACCOUNT HAVE 5 DOLLARS OF TAX ON WITHDRAW
     Account acc6 = new Account(1005, "Alex", 1000.0);
     acc6.withdraw(200.0);
-    System.out.println(acc6.getBalance());
+    System.out.println("\nNormal account: " + acc6.getBalance());
 
     // SAVINGS ACCOUNT HAVE NO TAX WHEN WITHDRAW
     Account acc7 = new SavingsAccount(1006, "Maria", 1000.0, 0.01);
     acc7.withdraw(200.0);
-    System.out.println(acc7.getBalance());
+    System.out.println("Saving account: " + acc7.getBalance());
 
+    // SUPER OVERRIDE LESSON
+
+    // BUSINESS ACCOUNT HAVE 2 DOLLARS TAX
+    Account acc8 = new BusinessAccount(1007, "Bob", 1000.0, 500.0);
+    acc8.withdraw(200.0);
+    System.out.println("Business account: " + acc8.getBalance());
   }
 }
