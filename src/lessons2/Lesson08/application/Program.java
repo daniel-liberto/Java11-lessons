@@ -70,5 +70,21 @@ public class Program {
     Account acc8 = new BusinessAccount(1007, "Bob", 1000.0, 500.0);
     acc8.withdraw(200.0);
     System.out.println("Business account: " + acc8.getBalance());
+
+    // POLYMORPHISM LESSON
+
+    // TWO ACCOUNTS OF THE SAME TYPE BUT DIFFERENT BEHAVIOR
+    Account x = new Account(1020, "Alex", 1000.0);
+    Account y = new SavingsAccount(1021, "Maria", 1000.0, 0.01);
+    System.out.println("\nORIGINAL VALUE:");
+    System.out.println("Balance for X account: " + x.getBalance());
+    System.out.println("Balance for Y account: " + y.getBalance());
+    x.withdraw(50.0);
+    y.withdraw(50.0);
+    System.out.println("\nNEW VALUE:");
+    System.out.println("Both get withdrew 50 dollars");
+    System.out.println("Balance for X account: " + x.getBalance());
+    System.out.println("Balance for Y account: " + y.getBalance());
+
   }
 }
