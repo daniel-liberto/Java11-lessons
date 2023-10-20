@@ -15,23 +15,23 @@ public class Program {
 
     List<Employee> list = new ArrayList<>();
 
-    System.out.println("Enter the number of employees: ");
+    System.out.print("Enter the number of employees: ");
     int n = sc.nextInt();
 
     for (int i = 0; i < n; i++) {
-      System.out.printf("Employee #%d data: \n", i + 1);
-      System.out.println("Outsourced (y/n)? ");
+      System.out.printf("\nEmployee #%d data: \n", i + 1);
+      System.out.print("Outsourced (y/n)? ");
       char ch = sc.next().charAt(0);
-      System.out.println("Name: ");
+      System.out.print("Name: ");
       sc.nextLine();
       String name = sc.nextLine();
-      System.out.println("Hours: ");
+      System.out.print("Hours: ");
       int hours = sc.nextInt();
-      System.out.println("Value per hour: ");
+      System.out.print("Value per hour: ");
       double valuePerHour = sc.nextDouble();
 
       if(ch == 'y' || ch == 'Y'){
-        System.out.println("Additional charge: ");
+        System.out.print("Additional charge: ");
         double additionalCharge = sc.nextDouble();
         Employee emp = new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge);
         list.add(emp);
@@ -41,6 +41,10 @@ public class Program {
       }
     }
 
+    System.out.println("\nPAYMENTS: ");
+    for (Employee emp: list) {
+      System.out.println(emp.getName() + " - $ " +String.format("%.2f", emp.payment()));
+    }
 
     sc.close();
   }
