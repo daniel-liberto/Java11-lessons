@@ -1,5 +1,11 @@
 package lessons2.Lesson12.application;
 
+import lessons2.Lesson12.entities.Company;
+import lessons2.Lesson12.entities.Individual;
+import lessons2.Lesson12.entities.Payer;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -10,6 +16,8 @@ public class Program {
 
     System.out.print("Enter the number of tax payers: ");
     int n = sc.nextInt();
+
+    List<Payer> payerList = new ArrayList<>();
 
     for (int i = 0; i < n; i++) {
       System.out.printf("Tax payer #%d data: \n", i + 1);
@@ -26,11 +34,11 @@ public class Program {
       if(payerType == 'i' || payerType == 'I'){
         System.out.print("Health expenditures: ");
         double expenditures = sc.nextDouble();
-
+        payerList.add(new Individual(name, incomeAnnual,expenditures ));
       } else if(payerType == 'c' || payerType == 'C'){
         System.out.print("Number of employees: ");
         int employeeNum = sc.nextInt();
-
+        payerList.add(new Company(name, incomeAnnual, employeeNum));
       }
     }
 
