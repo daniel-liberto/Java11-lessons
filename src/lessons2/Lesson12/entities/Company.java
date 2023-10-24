@@ -20,12 +20,17 @@ public class Company extends Payer {
   }
 
   @Override
+  public double currentTax(){
+    double taxValue = getAnnualIncome() / 100;
+    return employeeNum >= 10 ? taxValue * 14 : taxValue * 16;
+  }
+
+  @Override
   public String totalTax(){
     StringBuilder sb = new StringBuilder();
     sb.append(getName());
     sb.append(": $");
-    double taxValue = getAnnualIncome() / 100;
-    sb.append(String.format("%.2f", employeeNum >= 10 ? taxValue * 14 : taxValue * 16));
+    sb.append(String.format("%.2f", currentTax()));
     return sb.toString();
   }
 }

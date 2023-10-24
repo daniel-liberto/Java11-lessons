@@ -19,13 +19,17 @@ public class Individual extends Payer{
   }
 
   @Override
+  public double currentTax(){
+    double taxValue = getAnnualIncome() / 100;
+    return getAnnualIncome() <= 20000.00 ? (taxValue * 15) - (healthExp / 2) : (taxValue * 25) - (healthExp / 2);
+  }
+
+  @Override
   public String totalTax(){
     StringBuilder sb = new StringBuilder();
     sb.append(getName());
     sb.append(": $");
-    double taxValue = getAnnualIncome() / 100;
-    double resultTax = getAnnualIncome() <= 20000.00 ? (taxValue * 15) - (healthExp / 2) : (taxValue * 25) - (healthExp / 2);
-    sb.append(resultTax);
+    sb.append(currentTax());
     return sb.toString();
   }
 }

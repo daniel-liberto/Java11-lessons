@@ -26,5 +26,6 @@ public abstract class Payer {
     return annualIncome;
   }
 
+  public abstract double currentTax();
   public abstract String totalTax();
 }

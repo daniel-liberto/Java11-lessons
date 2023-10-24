@@ -20,7 +20,7 @@ public class Program {
     List<Payer> payerList = new ArrayList<>();
 
     for (int i = 0; i < n; i++) {
-      System.out.printf("Tax payer #%d data: \n", i + 1);
+      System.out.printf("\nTax payer #%d data: \n", i + 1);
       System.out.print("[I]ndividual or [C]ompany  (i/c)? ");
       char payerType = sc.next().charAt(0);
 
@@ -28,7 +28,7 @@ public class Program {
       sc.nextLine();
       String name = sc.nextLine();
 
-      System.out.println("Annual income: ");
+      System.out.print("Annual income: ");
       double incomeAnnual = sc.nextDouble();
 
       if(payerType == 'i' || payerType == 'I'){
@@ -41,7 +41,15 @@ public class Program {
         payerList.add(new Company(name, incomeAnnual, employeeNum));
       }
     }
+    double finalResult = 0;
+    System.out.println("\nTAXES PAID: ");
+    for (Payer person: payerList
+         ) {
+      System.out.println(person.totalTax());
+      finalResult += person.currentTax();
+    }
 
+    System.out.printf("\nTOTAL TAXES: $%.2f", finalResult);
 
     sc.close();
   }
