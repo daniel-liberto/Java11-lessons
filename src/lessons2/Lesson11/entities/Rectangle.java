@@ -12,6 +12,8 @@ public class Rectangle extends Shape {
   }
   public Rectangle(Color color, Double width, Double height){
     super(color);
+    this.width = width;
+    this.height = height;
   }
 
   public void setWidth(Double width){

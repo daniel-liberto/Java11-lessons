@@ -18,28 +18,33 @@ public class Program {
     System.out.print("Enter the number of shapes: ");
     int n = sc.nextInt();
 
+    List<Shape> shapeList = new ArrayList<>();
     for (int i = 0; i < n; i++) {
-      System.out.printf("Shape #%d data: ", i + 1);
+      System.out.printf("\nShape #%d data: \n", i + 1);
       System.out.print("[R]ectangle or [C]ircle (R/C)? ");
       char shapeType = sc.next().charAt(0);
       System.out.print("Color (BLACK/BLUE/RED): ");
-      String colorType = sc.next();
+      Color colorType = Color.valueOf(sc.next());
 
-      List<Shape> shapeList = new ArrayList<>();
 
       if(shapeType == 'R' || shapeType == 'r'){
         System.out.print("Width: ");
-        Double width = sc.nextDouble();
+        double width = sc.nextDouble();
         System.out.print("Height: ");
-        Double height = sc.nextDouble();
-        Shape rec = new Rectangle(Color.valueOf(colorType), width, height);
-        shapeList.add(rec);
+        double height = sc.nextDouble();
+        shapeList.add(new Rectangle(colorType, width, height));
+
       } else if (shapeType == 'C' || shapeType == 'c'){
-        System.out.println("Radius: ");
-        Double radius = sc.nextDouble();
-        Shape rec = new Circle(Color.valueOf(colorType), radius);
-        shapeList.add(rec);
+        System.out.print("Radius: ");
+        double radius = sc.nextDouble();
+
+        shapeList.add(new Circle(colorType, radius));
       }
+    }
+    System.out.println("\nSHAPE AREAS: ");
+    for (Shape item : shapeList
+         ) {
+      System.out.println(String.format("%.2f", item.area()));
     }
 
 
