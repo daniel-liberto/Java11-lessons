@@ -1,5 +1,7 @@
 package lessons2.Lesson18.model.entities;
 
+import lessons2.Lesson18.model.exceptions.WithdrawException;
+
 public class Account {
   private Integer number;
   private String holder;
@@ -28,10 +30,23 @@ public class Account {
     return holder;
   }
 
+  public Double getBalance(){
+    return balance;
+  }
+
   public void deposit(Double amount){
     balance += amount;
   }
-  public void withdraw(Double amount){
-    balance -= amount;
+  public void withdraw(Double amount) throws WithdrawException{
+    if(amount < withdrawLimit){
+      if(amount > balance){
+        throw new WithdrawException("Not enough balance");
+      } else {
+        balance -= amount;
+      }
+    } else {
+      throw new WithdrawException("The amount exceeds withdraw limit");
+    }
+
   }
 }
