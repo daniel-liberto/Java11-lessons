@@ -15,8 +15,8 @@ public class Program {
       fw.write("TV LED,1290.99,1");
       fw.write("Video Game Chair,350.50,3");
       fw.write("Samsung Galaxy 9,850.00,2");
-    } catch (IOException ioException){
-      System.out.println("Error: " + ioException);
+    } catch (IOException e){
+      System.out.println("Error: " + e);
     }
 
 
