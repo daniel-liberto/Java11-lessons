@@ -1,27 +1,28 @@
 package lessons3.Lesson07.application;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import lessons3.Lesson07.entities.Products;
+
 import java.util.Locale;
-import java.util.Scanner;
 
 public class Program {
   public static void main(String[] args) {
     Locale.setDefault(Locale.US);
-    Scanner sc = new Scanner(System.in);
-    String sourcePath = "c:\\temp\\source.csv";
 
-    try (FileWriter fw = new FileWriter(sourcePath)) {
-      fw.write("TV LED,1290.99,1");
-      fw.write("Video Game Chair,350.50,3");
-      fw.write("Samsung Galaxy 9,850.00,2");
-    } catch (IOException e){
-      System.out.println("Error: " + e);
-    }
+    String[] prod1 = "TV LED,1290.00,1".split(",");
+    Products prods1 = new Products(prod1[0], Double.parseDouble(prod1[1]), Integer.parseInt(prod1[2]));
+
+    String[] prod2 = "Video Game Chair,350.50,3".split(",");
+    Products prods2 = new Products(prod2[0], Double.parseDouble(prod2[1]), Integer.parseInt(prod2[2]));
+
+    String[] prod3 = "iPhone X,900.00,2".split(",");
+    Products prods3 = new Products(prod3[0], Double.parseDouble(prod3[1]), Integer.parseInt(prod3[2]));
+
+    String[] prod4 = "Samsung Galaxy 9,850.00,2".split(",");
+    Products prods4 = new Products(prod4[0], Double.parseDouble(prod4[1]), Integer.parseInt(prod4[2]));
 
 
-    System.out.println(sourcePath);
+    Products[] prodVector = new Products[] {prods1, prods2, prods3, prods4};
+    
 
-    sc.close();
   }
 }
