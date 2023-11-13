@@ -36,12 +36,12 @@ public class Products {
     return quantity;
   }
 
-  public double totalPrice(){
+  public Double totalPrice(){
     return price * quantity;
   }
 
   @Override
   public String toString(){
-    return name +" R$" + totalPrice();
+    return name + String.format("%.2f", totalPrice());
   }
 }
