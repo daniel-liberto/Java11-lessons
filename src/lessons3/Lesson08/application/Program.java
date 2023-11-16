@@ -2,6 +2,7 @@ package lessons3.Lesson08.application;
 
 import lessons3.Lesson08.model.entities.CarRental;
 import lessons3.Lesson08.model.entities.Vehicle;
+import lessons3.Lesson08.model.services.BrazilTaxService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -26,6 +27,10 @@ public class Program {
     LocalDateTime finish = LocalDateTime.parse(sc.nextLine(), fmt);
 
     CarRental cr = new CarRental(start, finish, new Vehicle(carModel));
+
+    BrazilTaxService taxService = new BrazilTaxService();
+
+    System.out.println(taxService.tax(390));
 
     sc.close();
   }
