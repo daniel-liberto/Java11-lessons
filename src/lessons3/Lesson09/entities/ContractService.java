@@ -15,11 +15,11 @@ public class ContractService {
   public void processContract(Contract contract, Integer months){
       OnlinePaymentService service = new PaypalService();
       Double perMonth = contract.getTotalValue() / months; // 200
-    for (int i = 0; i < months; i++) {
-      Date date = addMonths(contract.getDate(), i + 1);
 
-      Double interestValue = service.interest(perMonth, i + 1); // 2
-      Double feeValue = service.paymentFee(perMonth + interestValue);  // 4.04
+    for (int i = 1; i < (months + 1); i++) {
+      Date date = addMonths(contract.getDate(), i);
+      Double interestValue = service.interest(perMonth, i); // 2
+      Double feeValue = service.paymentFee((perMonth + interestValue));  // 4.04
       contract.addInstallments(new Installment(date, perMonth + feeValue + interestValue));
     }
   }
