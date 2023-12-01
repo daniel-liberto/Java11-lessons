@@ -2,7 +2,7 @@ package lessons3.Lesson10.model.entities;
 
 import lessons3.Lesson10.model.enums.Color;
 
-public class Rectangle extends Shape {
+public class Rectangle extends AbstractShape {
   private Double width;
   private Double height;
 
