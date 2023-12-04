@@ -1,7 +1,7 @@
 package lessons3.Lesson11.devices;
 
-public class ScannerDevice extends Device{
-  public ScannerDevice(String serialNumber){
+public class ConcreteScanner extends Device implements ScannerInterface{
+  public ConcreteScanner(String serialNumber){
     super(serialNumber);
   }
 
@@ -10,6 +10,7 @@ public class ScannerDevice extends Device{
     System.out.println("Scanner processing: " + doc);
   }
 
+  @Override
   public String scan(){
     return "Scanned content";
   }
