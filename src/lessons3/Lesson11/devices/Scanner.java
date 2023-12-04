@@ -10,7 +10,7 @@ public class Scanner extends Device{
     System.out.println("Scanner processing: " + doc);
   }
 
-  public void scanner(String doc){
-    System.out.println("Scanning: " + doc);
+  public String scan(){
+    return "Scanned content";
   }
 }
