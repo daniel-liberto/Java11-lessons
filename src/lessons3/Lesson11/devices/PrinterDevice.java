@@ -1,7 +1,7 @@
 package lessons3.Lesson11.devices;
 
-public class Printer extends Device{
-  public Printer(String serialNumber){
+public class PrinterDevice extends Device{
+  public PrinterDevice(String serialNumber){
     super(serialNumber);
   }
 

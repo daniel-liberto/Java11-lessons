@@ -1,7 +1,7 @@
 package lessons3.Lesson11.devices;
 
-public class Scanner extends Device{
-  public Scanner(String serialNumber){
+public class ScannerDevice extends Device{
+  public ScannerDevice(String serialNumber){
     super(serialNumber);
   }
 
