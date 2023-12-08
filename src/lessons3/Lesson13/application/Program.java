@@ -1,6 +1,7 @@
 package lessons3.Lesson13.application;
 
 import lessons3.Lesson13.services.BrazilInterestService;
+import lessons3.Lesson13.services.UsaInterestService;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -17,11 +18,17 @@ public class Program {
     System.out.print("Months: ");
     int months = sc.nextInt();
 
-    BrazilInterestService interestFee = new BrazilInterestService(2.0);
-    double payment = interestFee.payment(amount, months);
+    BrazilInterestService brInterestFee = new BrazilInterestService(2.0);
+    double brazilPayment = brInterestFee.payment(amount, months);
 
-    System.out.println("Payment after " + months + " months:");
-    System.out.printf("%.2f%n", payment);
+    System.out.println("\nBrazil Payment after " + months + " months:");
+    System.out.printf("%.2f%n", brazilPayment);
+
+    UsaInterestService usaInterestFee = new UsaInterestService(1.0);
+    double usaPayment = usaInterestFee.payment(amount, months);
+
+    System.out.println("\nUsa Payment after " + months + " months:");
+    System.out.printf("%.2f%n", usaPayment);
 
     sc.close();
   }
