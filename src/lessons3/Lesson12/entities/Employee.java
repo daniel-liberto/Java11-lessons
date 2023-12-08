@@ -1,6 +1,6 @@
 package lessons3.Lesson12.entities;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
   private String name;
   private Double salary;
 
@@ -21,5 +21,10 @@ public class Employee {
   }
   public Double getSalary(){
     return salary;
+  }
+
+  @Override
+  public int compareTo(Employee other){
+    return name.compareTo(other.getName());
   }
 }
