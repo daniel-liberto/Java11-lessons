@@ -1,6 +1,7 @@
 package lessons3.Lesson15.application;
 
 import lessons3.Lesson15.entities.Product;
+import lessons3.Lesson15.services.CalculationService;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -24,6 +25,10 @@ public class Program {
         list.add(new Product(fields[0], Double.parseDouble(fields[1])));
         line = br.readLine();
       }
+
+      Product x = CalculationService.max(list);
+      System.out.println("\nMost expensive product: ");
+      System.out.println(x);
 
     } catch (IOException ioException){
       System.out.println("Error: " + ioException.getMessage());
