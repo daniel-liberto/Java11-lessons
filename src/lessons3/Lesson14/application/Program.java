@@ -1,6 +1,6 @@
 package lessons3.Lesson14.application;
 
-import lessons3.Lesson14.services.PrintServiceString;
+import lessons3.Lesson14.services.PrintServiceObject;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -10,18 +10,19 @@ public class Program {
     Locale.setDefault(Locale.US);
     Scanner sc = new Scanner(System.in);
 
-    PrintServiceString pss = new PrintServiceString();
+    PrintServiceObject<Integer> pss = new PrintServiceObject<>();
 
     System.out.print("How many values? ");
     int n = sc.nextInt();
 
     for (int i = 0; i < n; i++) {
-      String value = sc.next();
+      Integer value = sc.nextInt();
       pss.addValue(value);
     }
 
     pss.print();
-    System.out.println("First: " + pss.first());
+    Integer x = pss.first();
+    System.out.println("First: " + x);
 
     sc.close();
   }
