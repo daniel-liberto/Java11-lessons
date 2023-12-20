@@ -21,7 +21,12 @@ public class Product implements Comparable<Product>{
   public Double getPrice(){
     return price;
   }
-  
+
+  @Override
+  public String toString(){
+    return name + ", $" + price;
+  }
+
   @Override
   public int compareTo(Product p){
     return name.toUpperCase().compareTo(p.getName().toUpperCase());
