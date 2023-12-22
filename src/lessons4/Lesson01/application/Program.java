@@ -17,13 +17,8 @@ public class Program {
     list.add(new Product("Notebook", 1200.00));
     list.add(new Product("Tablet", 450.00));
 
-    Comparator<Product> comp = new Comparator<Product>() {
-    @Override
-      public int compare(Product product1, Product product2){
-      return product1.getName().toUpperCase().compareTo(product2.getName().toUpperCase());
-    }
-    };
-    list.sort(comp);
+
+    list.sort(Comparator.comparing(p -> p.getName().toUpperCase()));
 
     for (Product p : list) {
       System.out.println(p);
