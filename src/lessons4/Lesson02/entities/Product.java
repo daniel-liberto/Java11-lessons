@@ -4,11 +4,11 @@ import java.util.Objects;
 
 public class Product {
   private String name;
-  private Double value;
+  private Double price;
 
-  public Product(String name, Double value){
+  public Product(String name, Double price){
     this.name = name;
-    this.value = value;
+    this.price = price;
   }
 
   public void setName(String name){
@@ -18,11 +18,11 @@ public class Product {
     return name;
   }
 
-  public void setValue(Double value){
-    this.value = value;
+  public void setPrice(Double price){
+    this.price = price;
   }
-  public Double getValue(){
-    return value;
+  public Double getPrice(){
+    return price;
   }
 
   @Override
@@ -30,11 +30,16 @@ public class Product {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Product product = (Product) o;
-    return Objects.equals(name, product.name) && Objects.equals(value, product.value);
+    return Objects.equals(name, product.name) && Objects.equals(price, product.price);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value);
+    return Objects.hash(name, price);
+  }
+
+  @Override
+  public String toString(){
+    return name + ", $" + String.format("%.2f", price);
   }
 }
