@@ -22,6 +22,8 @@ public class Program {
     list.removeIf(p -> p.getPrice() >= 100.0);
     // using classes way
     list.removeIf(new ProductPredicate());
+    // calling method inside the product class
+    list.removeIf(Product::staticProductPredicate);
 
     for (Product p : list){
       System.out.println(p);
