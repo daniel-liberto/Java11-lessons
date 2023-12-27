@@ -31,7 +31,7 @@ public class Program {
     // declaring way
     Predicate<Product> pred = p -> p.getPrice() >= 100.0;
     list.removeIf(pred);
-    
+
     for (Product p : list){
       System.out.println(p);
     }
