@@ -19,7 +19,16 @@ public class Program {
     list.add(new Product("Tablet", 350.50));
     list.add(new Product("HD Case", 80.90));
 
-    List<String> names = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
-    names.forEach(System.out::println);
+    List<String> namesClass = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
+    System.out.println("\nUppercase class: ");
+    namesClass.forEach(System.out::println);
+
+    List<String> namesStaticMethod = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
+    System.out.println("\nUppercase static method: ");
+    namesStaticMethod.forEach(System.out::println);
+
+    List<String> namesMethod = list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList());
+    System.out.println("\nUppercase method: ");
+    namesMethod.forEach(System.out::println);
   }
 }
