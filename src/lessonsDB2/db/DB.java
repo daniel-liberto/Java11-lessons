@@ -1,4 +1,4 @@
-package lessonsDB.db;
+package lessonsDB2.db;
 
 import lessonsDB.exceptions.DbException;
 
