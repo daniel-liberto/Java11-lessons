@@ -1,6 +1,6 @@
-package lessonsDB.db;
+package lessonsDatabase.lessonsDB.db;
 
-import lessonsDB.exceptions.DbException;
+import lessonsDatabase.lessonsDB.exceptions.DbException;
 
 import java.io.FileInputStream;
 import java.io.IOException;

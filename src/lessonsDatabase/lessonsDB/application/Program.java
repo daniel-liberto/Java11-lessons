@@ -1,6 +1,6 @@
-package lessonsDB.application;
+package lessonsDatabase.lessonsDB.application;
 
-import lessonsDB.db.DB;
+import lessonsDatabase.lessonsDB.db.DB;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

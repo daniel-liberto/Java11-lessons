@@ -1,7 +1,7 @@
-package lessonsDB2.application;
+package lessonsDatabase.lessonsDB2.application;
 
-import lessonsDB.db.DB;
-import lessonsDB.exceptions.DbException;
+import lessonsDatabase.lessonsDB.db.DB;
+import lessonsDatabase.lessonsDB.exceptions.DbException;
 
 import java.sql.*;
 import java.text.ParseException;
