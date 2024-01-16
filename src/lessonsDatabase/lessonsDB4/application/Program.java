@@ -1,12 +1,11 @@
 package lessonsDatabase.lessonsDB4.application;
 
 import lessonsDatabase.lessonsDB.db.DB;
-import lessonsDatabase.lessonsDB.exceptions.DbException;
+import lessonsDatabase.lessonsDB4.exceptions.DbIntegrityException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Program {
   public static void main(String[] args) {
@@ -17,24 +16,20 @@ public class Program {
     try {
       conn = DB.getConnection();
       st = conn.prepareStatement(
-              "UPDATE seller "
-              + "SET BaseSalary = BaseSalary + ? "
+              "DELETE FROM department "
               + "WHERE "
-              + "(DepartmentId = ?)",
-              Statement.RETURN_GENERATED_KEYS
+              + "Id = ?"
       );
 
-      double extraSalary = 200.0;
       int departmentId = 2;
-      st.setDouble(1, extraSalary);
-      st.setInt(2, departmentId);
+      st.setInt(1, departmentId);
 
       int rowsAffected = st.executeUpdate();
 
       System.out.println("Done! Rows affected: " + rowsAffected);
 
     } catch (SQLException sqlException){
-      throw new DbException(sqlException.getMessage());
+      throw new DbIntegrityException(sqlException.getMessage());
     } finally {
       DB.closeStatement(st);
       DB.closeConnection();
