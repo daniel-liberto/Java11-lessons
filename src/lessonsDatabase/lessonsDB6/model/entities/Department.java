@@ -1,8 +1,10 @@
 package lessonsDatabase.lessonsDB6.model.entities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Department {
+public class Department implements Serializable {
+  private static final long serialVersionUID = 1L;
   private Integer id;
   private String name;
 
@@ -39,7 +41,7 @@ public class Department {
   public int hashCode() {
     return Objects.hash(id, name);
   }
-  
+
   @Override
   public String toString(){
     return "Department [id= " + id + ", name= " + name + "]";
