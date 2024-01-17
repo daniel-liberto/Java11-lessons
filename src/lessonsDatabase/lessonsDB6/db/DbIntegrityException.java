@@ -1,4 +1,4 @@
-package lessonsDatabase.lessonsDB5.exceptions;
+package lessonsDatabase.lessonsDB6.db;
 
 public class DbIntegrityException extends RuntimeException{
   public DbIntegrityException(String msg){

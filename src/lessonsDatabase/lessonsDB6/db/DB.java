@@ -1,4 +1,4 @@
-package lessonsDatabase.lessonsDB5.db;
+package lessonsDatabase.lessonsDB6.db;
 
 import lessonsDatabase.lessonsDB.exceptions.DbException;
 
