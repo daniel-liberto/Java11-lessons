@@ -1,5 +1,7 @@
 package lessonsDatabase.lessonsDB6.application;
 
+import lessonsDatabase.lessonsDB6.model.dao.DaoFactory;
+import lessonsDatabase.lessonsDB6.model.dao.SellerDao;
 import lessonsDatabase.lessonsDB6.model.entities.Department;
 import lessonsDatabase.lessonsDB6.model.entities.Seller;
 
@@ -17,6 +19,7 @@ public class Program {
     } catch (ParseException parseException){
       System.out.println(parseException.getMessage());
     }
+    SellerDao sellerDao = DaoFactory.createSellerDao();
 
 
   }
