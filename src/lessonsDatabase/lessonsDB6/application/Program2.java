@@ -20,6 +20,15 @@ public class Program2 {
     departmentDao.insert(dep);
     System.out.println("New department created! new id: " + dep.getId());
 
+    System.out.println("=== TEST 2: Update department ===");
+    System.out.print("Type a new name: ");
+    String depUpdateName = sc.nextLine();
+    System.out.println("Type id number from department " + depUpdateName);
+    int depUpdateId = sc.nextInt();
+    Department depUpdate = new Department(depUpdateId, depUpdateName);
+    departmentDao.update(depUpdate);
+    System.out.println("Update completed!");
+
     sc.close();
   }
 }

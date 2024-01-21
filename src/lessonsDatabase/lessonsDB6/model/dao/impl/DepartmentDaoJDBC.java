@@ -41,7 +41,29 @@ public class DepartmentDaoJDBC implements DepartmentDao {
   }
 
   public void update(Department obj) {
+    PreparedStatement st = null;
+    try {
+      st = conn.prepareStatement(
+              "UPDATE department "
+              + "SET Name = ? "
+              + "WHERE id = ?"
+      );
 
+      st.setString(1, obj.getName());
+      st.setInt(2, obj.getId());
+
+      int rowsAffected = st.executeUpdate();
+      if (rowsAffected > 0){
+        System.out.println("Update complete! rows affected: " + rowsAffected);
+      } else {
+        throw new DbException("Unexpected error! Update failed");
+      }
+
+    } catch (SQLException sqlException){
+      throw new DbException(sqlException.getMessage());
+    } finally {
+      DB.closeStatement(st);
+    }
   }
 
   public void deleteById(Integer id) {
