@@ -6,7 +6,10 @@ import lessonsDatabase.lessonsDB6.model.dao.DepartmentDao;
 import lessonsDatabase.lessonsDB6.model.entities.Department;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DepartmentDaoJDBC implements DepartmentDao {
   private Connection conn;
@@ -93,7 +96,35 @@ public class DepartmentDaoJDBC implements DepartmentDao {
   }
 
   public List<Department> findAll() {
-    return null;
+    PreparedStatement st = null;
+    ResultSet rs = null;
+
+    try {
+      st = conn.prepareStatement(
+              "SELECT Id,Name as DepName "
+                      + "FROM department",
+              Statement.RETURN_GENERATED_KEYS
+      );
+
+      rs = st.executeQuery();
+      List<Department> depList = new ArrayList<>();
+      Map<Integer, Department> map = new HashMap<>();
+
+      while (rs.next()) {
+        Department dep = map.get(rs.getInt("Id"));
+        if (dep == null){
+          dep = instantiateDepartment(rs);
+          map.put(rs.getInt("Id"), dep);
+        }
+          depList.add(dep);
+      }
+      return depList;
+    } catch (SQLException sqlException){
+      throw new DbException(sqlException.getMessage());
+    } finally {
+      DB.closeStatement(st);
+      DB.closeResultSet(rs);
+    }
   }
 
   private Department instantiateDepartment(ResultSet rs) throws SQLException{
