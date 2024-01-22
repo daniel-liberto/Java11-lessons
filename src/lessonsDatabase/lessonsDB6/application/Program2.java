@@ -2,6 +2,7 @@ package lessonsDatabase.lessonsDB6.application;
 
 import lessonsDatabase.lessonsDB6.model.dao.DaoFactory;
 import lessonsDatabase.lessonsDB6.model.dao.DepartmentDao;
+import lessonsDatabase.lessonsDB6.model.entities.Department;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -27,6 +28,12 @@ public class Program2 {
 //    Department depUpdate = new Department(depUpdateId, depUpdateName);
 //    departmentDao.update(depUpdate);
 //    System.out.println("Update completed!");
+
+    System.out.println("=== TEST 3: FindById ===");
+    System.out.print("Type an department id: ");
+    int depFindId = sc.nextInt();
+    Department depResult = departmentDao.findById(depFindId);
+    System.out.println(depResult);
 
     sc.close();
   }

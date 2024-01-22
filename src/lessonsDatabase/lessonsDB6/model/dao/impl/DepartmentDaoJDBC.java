@@ -5,10 +5,7 @@ import lessonsDatabase.lessonsDB6.db.DbException;
 import lessonsDatabase.lessonsDB6.model.dao.DepartmentDao;
 import lessonsDatabase.lessonsDB6.model.entities.Department;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
 
 public class DepartmentDaoJDBC implements DepartmentDao {
@@ -71,11 +68,39 @@ public class DepartmentDaoJDBC implements DepartmentDao {
   }
 
   public Department findById(Integer id) {
-    return null;
+    PreparedStatement st = null;
+    ResultSet rs = null;
+    try {
+      st = conn.prepareStatement(
+              "SELECT Id,Name as DepName "
+                      + "FROM department "
+                      + "WHERE Id = ?"
+      );
+      st.setInt(1, id);
+
+      rs = st.executeQuery();
+      if (rs.next()){
+        return instantiateDepartment(rs);
+      } else {
+        return null;
+      }
+    } catch (SQLException sqlException){
+      throw new DbException(sqlException.getMessage());
+    } finally {
+      DB.closeStatement(st);
+      DB.closeResultSet(rs);
+    }
   }
 
   public List<Department> findAll() {
     return null;
+  }
+
+  private Department instantiateDepartment(ResultSet rs) throws SQLException{
+    Department dep = new Department();
+    dep.setId(rs.getInt("Id"));
+    dep.setName(rs.getString("DepName"));
+    return dep;
   }
 
 }
