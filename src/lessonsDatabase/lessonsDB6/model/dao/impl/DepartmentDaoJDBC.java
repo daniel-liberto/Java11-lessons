@@ -67,7 +67,26 @@ public class DepartmentDaoJDBC implements DepartmentDao {
   }
 
   public void deleteById(Integer id) {
+    PreparedStatement st = null;
 
+    try {
+      st = conn.prepareStatement(
+              "DELETE FROM department "
+              + "WHERE Id = ?"
+      );
+      st.setInt(1, id);
+
+      int rowsAffected = st.executeUpdate();
+      if(rowsAffected > 0){
+        System.out.println("Delete done! rows affected: " + rowsAffected);
+      } else {
+        throw new DbException("Unexpected error! failed to delete department");
+      }
+    } catch (SQLException sqlException){
+      throw new DbException(sqlException.getMessage());
+    } finally {
+      DB.closeStatement(st);
+    }
   }
 
   public Department findById(Integer id) {
