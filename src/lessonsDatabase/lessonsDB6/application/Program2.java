@@ -20,20 +20,22 @@ public class Program2 {
 //    departmentDao.insert(dep);
 //    System.out.println("New department created! new id: " + dep.getId());
 
-//    System.out.println("=== TEST 2: Update department ===");
-//    System.out.print("Type a new name: ");
-//    String depUpdateName = sc.nextLine();
-//    System.out.println("Type id number from department " + depUpdateName);
-//    int depUpdateId = sc.nextInt();
-//    Department depUpdate = new Department(depUpdateId, depUpdateName);
-//    departmentDao.update(depUpdate);
-//    System.out.println("Update completed!");
+    System.out.println("=== TEST 2: Update department ===");
+    System.out.print("Type the department id to update: ");
+    int depUpdateId = sc.nextInt();
+    Department depUpdate = departmentDao.findById(depUpdateId);
+    System.out.println("Department name selected is: " + depUpdate.getName());
+    sc.nextLine();
+    System.out.print("What is the updated name for this department? ");
+    String depUpdateName = sc.nextLine();
+    departmentDao.update(new Department(depUpdate.getId(), depUpdateName));
 
-    System.out.println("=== TEST 3: FindById ===");
-    System.out.print("Type an department id: ");
-    int depFindId = sc.nextInt();
-    Department depResult = departmentDao.findById(depFindId);
-    System.out.println(depResult);
+//    System.out.print("Type an department id: ");
+//    int depFindId = sc.nextInt();
+//    Department depResult = departmentDao.findById(depFindId);
+//    System.out.println(depResult);
+
+    System.out.println();
 
     sc.close();
   }
