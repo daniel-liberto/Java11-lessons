@@ -1,4 +1,4 @@
-package lessonsJavaEE.Lesson01.Domain;
+package lessonsJavaEE.Lesson01.domain;
 
 import java.io.Serializable;
 
